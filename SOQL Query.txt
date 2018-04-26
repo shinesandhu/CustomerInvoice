@@ -1,0 +1,66 @@
+SOQL Query
+==========
+
+Exact Search
+select id, name from Account where name = 'Nike Company'
+
+Reserved Character
+select id, name from Account where name = 'Bub\'s Burger'
+
+WildCard Search
+select id, name from Account where name like 'Uni%'
+
+select name from Account where name like 'Nike%' and rating = 'Hot'
+----
+
+select id, name, BillingState from Account where BillingState in ('CA','NY')
+
+select id, name, BillingState from Account where BillingState not in ('CA','NY')
+----
+
+Formula
+select count() from Account 
+====
+
+Child Query
+select contact.firstname, contact.lastname, contact.account.name from contact 
+----
+
+Alias
+select count() from contact c, c.account a where a.name = 'Pepsi'
+----
+
+Group By
+select leadsource, count(name) from Lead group by leadsource
+
+select status, leadsource, count(name) from lead group by rollup(status, leadsource)
+====
+
+Order By
+select id, name from Account order by name asc
+----
+
+Multi-Select Picklist 
+(Engish and Computer)
+select id, subject__c from school__c where subject__c = 'Englist;Computer'
+
+(Computer or Biology)
+select id, subject__c from school__c where subject__c includes('Computer','Biology')
+====
+
+Account Created after 2017
+select id, name from Account where Calendar_Year(CreatedDate)>2017
+====
+
+Finding duplicate Account records
+select name, count(id) from Account group by name having count(id)>1
+====
+
+Finding NULL values in SOQL Query
+select AccountId from Event where ActivityDate != null
+
+select id from case where contact.firstname = null
+====
+
+
+

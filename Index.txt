@@ -1,0 +1,29 @@
+Customer Invoice App
+
+Index
+
+
+01. Insert Customer and Invoice record
+02. Check Invoice record Status, and update it to 'Paid' status
+03. Performing Upsert operation (Info within example)
+04. Delete Customer records which start with Nike name
+05. Let's undelete all the records, we just deleted
+06. Using Database Method to insert records
+07. Using Database Method to update records
+08. SOSL query within Account Object
+09. SOQL query (Scenario within example)
+10. SOQL query 
+11. SOQL query (Parent - Child relationship)
+12. SOQL query (Parent - Child relationship)
+13. SOQL query (Aggregate Function)
+14. SOQL Bindings
+
+
+
+
+
+
+
+
+
+

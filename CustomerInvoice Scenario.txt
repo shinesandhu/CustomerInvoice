@@ -1,0 +1,16 @@
+Customer Invoice Scenario
+
+Parent Object: Customer__c
+Active__c = checkbox
+Customer_Description__c = Text(255)
+Customer_Status__c = Picklist [Active, Inactive, Paid, Pending, Unpaid]
+External_ID = Text (20)
+
+
+Child Object: Invoice__c
+Amount_Paid__c = Currency(10,2)
+Description__c = Text Area(255)
+Status__c = Picklist [Paid, Pending, Unpaid]
+Customer__c = Master - Detail Relationship
+
+Name = Autonumber INV-{0000}
