@@ -20,6 +20,8 @@ Index
 15. Customer Trigger (Scenario within example)
 16. Customer Trigger (Improvement)
 17. Account Trigger example
+18. Before Delete Trigger 
+
 
 
 
