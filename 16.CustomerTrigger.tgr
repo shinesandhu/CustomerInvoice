@@ -1,0 +1,29 @@
+trigger CustomerTrigger on Customer__c (after update) 
+{
+        //Scenario: Improving on last trigger example
+        //When Customer_Status__c (Customer object) is changed to Active (Picklist value)
+        //A new Invoice record is created with Status = 'Pending' and a Description message
+        //Note: Trigger should not fire, if last Customer_Status__c = 'Active'
+        
+        //Does this event happens before or after, to Customer record? (After update)
+       //This List will store all the Invoice records 
+       List<Invoice__c> invList = new List<Invoice__c>();
+   
+       
+       // Here trigger.oldMap.get(cust.id).Customer_Status__c holds the old value
+       
+       for(Customer__c cust : trigger.new)
+       {
+           if(cust.Customer_Status__c == 'Active' && trigger.oldMap.get(cust.id).Customer_Status__c != 'Active')
+           {
+               Invoice__c inv = new Invoice__c();
+               inv.Status__c = 'Pending';
+               inv.Description__c = 'This record is created by a trigger';
+               //This is a Master-Detail relationship field on Invoice object
+               inv.Customer__c = cust.id;
+               invList.add(inv);
+               
+           }
+               insert invList;        
+       }
+}
