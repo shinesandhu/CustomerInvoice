@@ -1,0 +1,21 @@
+trigger AccountTrigger on Account (after insert) 
+{
+    //Scenario
+    //Every time a new Account record is created, a contact record 'Test Contact' is created
+    //Think Account record, What happens before or after? (after insert)
+    
+    //This List will be storing all the contact record information
+    List<Contact> conList = new List<Contact>();
+    
+    //We're looking into Account record
+    for(Account acc: trigger.new)
+    {
+        Contact con = new Contact();
+        con.firstname = 'Test';
+        con.lastname = 'Contact';
+        //Linking Contact record to Account record
+        con.accountid = acc.id;
+        conList.add(con);
+    }
+        insert conList;   
+}
