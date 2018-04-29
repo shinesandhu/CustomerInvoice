@@ -1,0 +1,16 @@
+trigger AccountTrigger on Account (before insert)
+{
+    //Scenario
+    //If Rating = 'Hot' or Industry = 'Technology, you cannot insert Account record
+    
+    if(trigger.isInsert)
+    {
+        for(Account acc : trigger.new)
+        {
+            if(acc.rating == 'Hot' || acc.Industry == 'Technology')
+            {
+                acc.addError('You cannot insert this record!!');
+            }
+        }
+    }
+}

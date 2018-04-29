@@ -21,6 +21,10 @@ Index
 16. Customer Trigger (Improvement)
 17. Account Trigger example
 18. Before Delete Trigger 
+19. Before Insert Trigger
+20. Before Insert Trigger
+
+
 
 
 

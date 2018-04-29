@@ -1,0 +1,18 @@
+trigger AccountTrigger on Account (before insert)
+{
+    //Scenario
+    //Account record will be created if all the below conditions are met
+    //Rating = 'Hot' && Industry = 'Retail' && NumberOfEmployees = 100
+    
+    if(trigger.isInsert)
+    {
+        for(Account acc : trigger.new)
+        {
+            
+            System.assertEquals('Hot', acc.Rating);
+            System.assertEquals('Retail', acc.Industry);
+            System.assertEquals(100, acc.NumberOfEmployees);
+            
+        }
+    }
+}
