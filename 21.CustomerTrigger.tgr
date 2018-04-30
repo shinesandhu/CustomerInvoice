@@ -1,0 +1,7 @@
+trigger CustomerTrigger on Customer__c (after update) 
+{
+    //Calling Helper Class & it's Method
+    CustomerTriggerHelper.demo(trigger.new, trigger.oldMap);
+    //trigger.new or trigger.old = List<SObject>
+    //trigger.newMap or trigger.oldMap = Map<Id, SObject> 
+}
