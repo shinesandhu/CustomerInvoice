@@ -1,0 +1,36 @@
+trigger CustomerTrigger on Customer__c (before insert, after insert, after update, after delete) 
+{
+    
+    if (Trigger.isInsert) 
+    {
+        if (Trigger.isBefore) 
+        {
+            // Process before insert
+
+        }
+
+
+        if(Trigger.isAfter)
+        {
+
+            // Process after insert
+        }
+        
+     } 
+     else if (Trigger.isUpdate) 
+     {
+          if(Trigger.isAfter) 
+          {     
+                //Calling Helper Class & it's Method
+                CustomerTriggerHelper.demo(trigger.new, trigger.oldMap);
+
+                //trigger.new or trigger.old = List<SObject>
+                //trigger.newMap or trigger.oldMap = Map<Id, SObject> 
+           }
+            
+      } 
+      else if (Trigger.isDelete) 
+      {
+                // Process after delete
+      }
+}
