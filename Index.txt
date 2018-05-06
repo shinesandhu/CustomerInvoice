@@ -25,6 +25,7 @@ Index
 20. Before Insert Trigger
 21. Using CustomerTriggerHelper class
 22. One Trigger per Object
+23. CustomerBatch Job
 
 
 
