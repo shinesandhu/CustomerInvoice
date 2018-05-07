@@ -27,6 +27,8 @@ Index
 22. One Trigger per Object
 23. CustomerBatch Job
 24. AccountBatch Job
+25. Sending Email
+
 
 
 
